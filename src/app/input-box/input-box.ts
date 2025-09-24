@@ -10,6 +10,7 @@ import { TreeService } from '../tree.service';
 })
 export class InputBox implements OnInit {
   treeInputText: string = '';
+  error: string = '';
 
   constructor(private treeService: TreeService) { }
 
@@ -24,5 +25,6 @@ export class InputBox implements OnInit {
 
   onUpdateButtonClick(newTreeValue: string) {
     this.treeService.updateTree(newTreeValue);
+    this.error = this.treeService.error();
   }
 }

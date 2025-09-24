@@ -12,6 +12,7 @@ export class TreeService {
     "f": ["j", "k"],
   });
   rootNode = signal<string>("a");
+  error = signal<string>("");
 
   updateTree(newTree: string) {
     try {
@@ -19,8 +20,10 @@ export class TreeService {
       console.log("parse tree is", parsedTree);
       this.treeObject.set(parsedTree.tree);
       this.rootNode.set(parsedTree.root);
+      this.error.set('');
     } catch (error) {
       console.error('Invalid tree format', error);
+      this.error.set('Invalid tree format');
     }
   }
 }

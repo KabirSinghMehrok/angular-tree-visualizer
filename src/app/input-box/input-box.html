@@ -1,4 +1,5 @@
 <div id="input-box">
   <textarea [value]="treeInputText" #treeInputArea id="input-area"></textarea>
   <button type="button" (click)="onUpdateButtonClick(treeInputArea.value)">Update Tree</button>
+  <p id="error">{{error}}</p>
 </div>
